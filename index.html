@@ -3,20 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ganapathy Subramaniam Sundar - AI Innovator & Generative AI Specialist</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%233498db%22/><circle cx=%2250%22 cy=%2250%22 r=%2240%22 fill=%22%232980b9%22/><path d=%22M30 70 Q 50 30 70 70%22 stroke=%22white%22 stroke-width=%228%22 fill=%22none%22/></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f4f8;
-        }
-        .gradient-bg {
-            background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
-        }
-    </style>
-    <title>Generative AI Specialist</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-        
         :root {
             --primary-bg: #0f0c29;
             --secondary-bg: #24243e;
@@ -240,7 +230,7 @@
                     <button class="expertise-item">AI Development</button>
                     <button class="expertise-item">Deep Learning</button>
                     <button class="expertise-item">AWS</button>
-                    <button class="expertise-item">Openai</button>
+                    <button class="expertise-item">OpenAI</button>
                     <button class="expertise-item">Anthropic</button>
                     <button class="expertise-item">Vertex AI</button>
                     <button class="expertise-item">Flask</button>
@@ -257,7 +247,7 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
+        document.addEventListener('DOMContentLoaded', () => {
             const connectItems = document.querySelectorAll('.connect-item');
             connectItems.forEach(item => {
                 item.addEventListener('mouseenter', () => {
@@ -270,11 +260,8 @@
 
             const expertiseItems = document.querySelectorAll('.expertise-item');
             expertiseItems.forEach(item => {
-                item.addEventListener('mouseenter', () => {
-                    item.style.transform = 'scale(1.05)';
-                });
-                item.addEventListener('mouseleave', () => {
-                    item.style.transform = 'scale(1)';
+                item.addEventListener('click', () => {
+                    item.classList.toggle('active');
                 });
             });
         });
