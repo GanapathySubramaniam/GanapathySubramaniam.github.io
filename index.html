@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ganapathy Subramaniam Sundar - AI Innovator & Generative AI Specialist</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%233498db%22/><circle cx=%2250%22 cy=%2250%22 r=%2240%22 fill=%22%232980b9%22/><path d=%22M30 70 Q 50 30 70 70%22 stroke=%22white%22 stroke-width=%228%22 fill=%22none%22/></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg: #0f0c29;
+            --secondary-bg: #24243e;
+            --accent-color: #4b3f72;
+            --text-color: #e0e0ff;
+            --highlight-color: #9d4edd;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            background: var(--primary-bg);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-bg), var(--secondary-bg), var(--accent-color));
+            opacity: 0.8;
+            z-index: -1;
+        }
+        
+        .header-content {
+            text-align: center;
+            z-index: 1;
+        }
+        
+        h1 {
+            font-size: 5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #e0e0ff, #ff80ab, #b388ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradient 5s ease infinite;
+        }
+        
+        .title {
+            font-size: 1.75rem;
+            font-weight: 300;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.4;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards 0.5s;
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+        
+        .scroll-indicator svg {
+            width: 2rem;
+            height: 2rem;
+            fill: var(--text-color);
+        }
+        
+        .section {
+            padding: 6rem 0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: var(--highlight-color);
+            text-align: center;
+        }
+        
+        .connect-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .connect-item {
+            display: flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: var(--text-color);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .connect-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+        
+        .connect-item:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .connect-item:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .connect-item svg {
+            width: 3rem;
+            height: 3rem;
+            margin-right: 1.5rem;
+            transition: transform 0.5s ease;
+        }
+        
+        .connect-item:hover svg {
+            transform: scale(1.2) rotate(360deg);
+        }
+        
+        .expertise-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .expertise-category {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .expertise-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        .expertise-category h3 {
+            color: var(--highlight-color);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .expertise-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .expertise-item {
+            background-color: rgba(157, 78, 221, 0.1);
+            color: var(--text-color);
+            border: 1px solid rgba(157, 78, 221, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            /* Remove any transitions here */
+        }
+        
+        .expertise-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+        
+        .expertise-item:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .expertise-item:hover {
+            background-color: rgba(157, 78, 221, 0.2);
+            box-shadow: 0 2px 10px rgba(157, 78, 221, 0.3);
+        }
+        
+        /* Remove all previous animations and transitions */
+        .expertise-item {
+            animation: none;
+            transform: none;
+        }
+        
+        /* Add 360-degree spin animation on hover */
+        @keyframes spin360 {
+            from { transform: rotateY(0deg); }
+            to { transform: rotateY(360deg); }
+        }
+        
+        .expertise-item:hover {
+            animation: spin360 0.8s ease-in-out;
+            transform-style: preserve-3d;
+            backface-visibility: visible;
+        }
+        
+        /* Remove any scaling or bouncing effects */
+        .expertise-item:hover {
+            transform: none;
+        }
+        
+        /* Explicitly remove any pulse animations */
+        .expertise-item {
+            animation: none !important;
+        }
+        
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .expertise-category {
+            animation: fadeInScale 0.5s ease forwards;
+            opacity: 0;
+        }
+        
+        .expertise-category:nth-child(1) { animation-delay: 0.1s; }
+        .expertise-category:nth-child(2) { animation-delay: 0.2s; }
+        .expertise-category:nth-child(3) { animation-delay: 0.3s; }
+        .expertise-category:nth-child(4) { animation-delay: 0.4s; }
+        
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            background-color: var(--secondary-bg);
+        }
+        
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+            40% { transform: translateY(-20px) translateX(-50%); }
+            60% { transform: translateY(-10px) translateX(-50%); }
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 3.5rem; }
+            .title { font-size: 1.25rem; }
+        }
+        
+        /* New styles for animations */
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .floating-shape {
+            position: absolute;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+        
+        .shape-1 {
+            top: 10%;
+            left: 5%;
+            width: 50px;
+            height: 50px;
+            background: var(--highlight-color);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            animation: float 6s ease-in-out infinite, rotate 10s linear infinite;
+        }
+        
+        .shape-2 {
+            top: 60%;
+            right: 10%;
+            width: 70px;
+            height: 70px;
+            background: var(--accent-color);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            animation: float 8s ease-in-out infinite alternate, pulse 5s ease-in-out infinite;
+        }
+        
+        .shape-3 {
+            bottom: 15%;
+            left: 15%;
+            width: 60px;
+            height: 60px;
+            background: var(--text-color);
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            animation: float 7s ease-in-out infinite, rotate 15s linear infinite reverse;
+        }
+        
+        .expertise-item {
+            /* ... (previous styles) ... */
+            animation: pulse 3s infinite;
+        }
+        
+        .expertise-item:nth-child(odd) {
+            animation-delay: 0.5s;
+        }
+        
+        .connect-item {
+            /* ... (previous styles) ... */
+            animation: float 5s ease-in-out infinite;
+        }
+        
+        .connect-item:nth-child(even) {
+            animation-delay: 1s;
+        }
+        
+        .header-content {
+            /* ... (previous styles) ... */
+            position: relative;
+        }
+        
+        .header-content::before,
+        .header-content::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: -1;
+        }
+        
+        .header-content::before {
+            top: -100px;
+            left: -100px;
+            animation: pulse 10s infinite alternate;
+        }
+        
+        .header-content::after {
+            bottom: -100px;
+            right: -100px;
+            animation: pulse 10s infinite alternate-reverse;
+        }
+        
+        .menu-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(15, 12, 41, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .menu-bar .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .menu-bar ul {
+            list-style-type: none;
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .menu-bar li a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .menu-bar li a:hover {
+            color: var(--highlight-color);
+        }
+        
+        /* Adjust header padding to accommodate the menu bar */
+        header {
+            padding-top: 60px;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .menu-bar ul {
+                gap: 1rem;
+            }
+            
+            .menu-bar li a {
+                font-size: 0.9rem;
+            }
+        }
+        
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        .about-content {
+            display: flex;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-video {
+            flex: 1;
+        }
+        
+        .video-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .video-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-tagline {
+            font-size: 1.5rem;
+            color: var(--highlight-color);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .about-text h4 {
+            font-size: 1.25rem;
+            color: var(--accent-color);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .about-text p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column-reverse;
+            }
+            
+            .about-video {
+                margin-bottom: 2rem;
+            }
+        }
+        
+        /* Add a glowing effect to the video */
+        .video-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, var(--highlight-color), var(--accent-color));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .video-container:hover::after {
+            opacity: 0.2;
+        }
+        
+        /* Add animation to the text */
+        .about-text {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="menu-bar">
+            <div class="container">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#connect">Connect</a></li>
+                    <li><a href="#expertise">Expertise</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="header-bg"></div>
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="floating-shape shape-3"></div>
+        <div class="header-content">
+            <h1>Ganapathy Subramaniam Sundar</h1>
+            <p class="title">AI Innovator & Generative AI Specialist | Pioneering Intelligent Systems for Tomorrow's Challenges</p>
+        </div>
+        <div class="scroll-indicator">
+            <svg viewBox="0 0 24 24">
+                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+            </svg>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="about" class="section">
+            <div class="about-container">
+                <h2>About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3 class="about-tagline">🚀 Architect of Tomorrow | AI Visionary | Catalyst for Change</h3>
+                        <p>I'm on a mission to revolutionize the world with cloud-powered AI, crafting intelligent systems that not only break technological barriers but also create transformative impacts on society. My passion lies in building AI solutions that are not just cutting-edge but truly meaningful—pushing boundaries and setting new standards for innovation.</p>
+                        <h4>🌏 Empowering Humanity Through AI</h4>
+                        <p>Imagine a world where AI transcends language, bridges cultures, and drives sustainable solutions—this is my vision. I am dedicated to democratizing advanced technologies, ensuring AI's potential reaches every corner of the globe, solving real-world problems, and fostering a more connected, sustainable future.</p>
+                        <h4>💫 Driven by Impact and Innovation</h4>
+                        <p>Relentlessly pursuing excellence, I strive to shape a future where AI isn't just a tool, but a force of empowerment—unlocking human potential, transforming industries, and creating a legacy of progress. Every system I build is a step towards a world where technology and humanity thrive in unison, achieving the extraordinary together.</p>
+                    </div>
+                    <div class="about-video">
+                        <div class="video-container">
+                            <video autoplay loop muted playsinline>
+                                <source src="video.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="connect" class="section">
+            <h2>Connect with Me</h2>
+            <div class="connect-grid">
+                <a href="https://www.linkedin.com/in/ganapathy-subramaniam-sundar-b08aa222b/" target="_blank" rel="noopener noreferrer" class="connect-item">
+                    <svg viewBox="0 0 24 24" fill="currentColor" class="linkedin-icon">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://github.com/GanapathySubramaniam" target="_blank" rel="noopener noreferrer" class="connect-item">
+                    <svg viewBox="0 0 24 24" fill="currentColor" class="github-icon">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    <span>GitHub</span>
+                </a>
+                <a href="mailto:ganapathysubramaniam1999@gmail.com" class="connect-item">
+                    <svg viewBox="0 0 24 24" fill="currentColor" class="email-icon">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                    <span>Email</span>
+                </a>
+                <div class="connect-item">
+                    <svg viewBox="0 0 24 24" fill="currentColor" class="location-icon">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                    </svg>
+                    <span>Toronto, Canada</span>
+                </div>
+            </div>
+        </section>
+        
+        <section id="expertise" class="section">
+            <h2>Expertise</h2>
+            <div class="expertise-container">
+                <div class="expertise-category">
+                    <h3>Generative AI</h3>
+                    <ul class="expertise-list">
+                        <li class="expertise-item">Generative AI Solutions Architect</li>
+                        <li class="expertise-item">Large Language Model (LLM) Engineering</li>
+                        <li class="expertise-item">NLP & Text Analytics (LLM, RAG)</li>
+                        <li class="expertise-item">Effective Prompt Engineering</li>
+                        <li class="expertise-item">Prompt Caching & Optimization</li>
+                        <li class="expertise-item">Model Distillation & Quantization</li>
+                        <li class="expertise-item">Multimodal AI (Text, Speech, Image)</li>
+                        <li class="expertise-item">Intelligent AI Agents & Automation</li>
+                    </ul>
+                </div>
+                <div class="expertise-category">
+                    <h3>Cloud & Infrastructure</h3>
+                    <ul class="expertise-list">
+                        <li class="expertise-item">Cloud-Native AI Deployment (GCP, AWS)</li>
+                        <li class="expertise-item">Vertex AI Specialist</li>
+                        <li class="expertise-item">AWS Sagemaker & Bedrock</li>
+                        <li class="expertise-item">Cloud Orchestration (Docker & Kubernetes)</li>
+                        <li class="expertise-item">CI/CD Pipelines for AI Models</li>
+                    </ul>
+                </div>
+                <div class="expertise-category">
+                    <h3>Data & Analytics</h3>
+                    <ul class="expertise-list">
+                        <li class="expertise-item">Data Warehousing & ETL (Snowflake)</li>
+                        <li class="expertise-item">Time Series Modeling & Forecasting</li>
+                        <li class="expertise-item">Database Management (SQL & NoSQL)</li>
+                        <li class="expertise-item">Data Science & Predictive Analytics</li>
+                        <li class="expertise-item">Vector Databases & RAG Frameworks</li>
+                    </ul>
+                </div>
+                <div class="expertise-category">
+                    <h3>Development & Tools</h3>
+                    <ul class="expertise-list">
+                        <li class="expertise-item">Python Programming & Automation</li>
+                        <li class="expertise-item">LangChain & LangGraph Expertise</li>
+                        <li class="expertise-item">Hugging Face & PyTorch Development</li>
+                        <li class="expertise-item">Anthropic (Claude) Integration</li>
+                        <li class="expertise-item">OpenAI (GPT, DALL-E, Whisper, TTS-HD)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Ganapathy Subramaniam Sundar. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.section');
+            const options = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, options);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            const expertiseItems = document.querySelectorAll('.expertise-item');
+            expertiseItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    item.classList.toggle('active');
+                });
+            });
+
+            const scrollIndicator = document.querySelector('.scroll-indicator');
+            scrollIndicator.addEventListener('click', () => {
+                window.scrollTo({
+                    top: window.innerHeight,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Add particle animation
+            function createParticles() {
+                const particleCount = 50;
+                const colors = ['#ff80ab', '#b388ff', '#8c9eff', '#82b1ff'];
+                const header = document.querySelector('header');
+
+                for (let i = 0; i < particleCount; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle';
+                    particle.style.width = `${Math.random() * 5 + 1}px`;
+                    particle.style.height = particle.style.width;
+                    particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    particle.style.left = `${Math.random() * 100}%`;
+                    particle.style.top = `${Math.random() * 100}%`;
+                    particle.style.animation = `float ${Math.random() * 5 + 5}s ease-in-out infinite`;
+                    particle.style.opacity = Math.random() * 0.5 + 0.1;
+                    header.appendChild(particle);
+                }
+            }
+
+            createParticles();
+
+            // Add smooth scrolling for menu items
+            document.querySelectorAll('.menu-bar a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Add menu bar hide/show on scroll
+            let lastScrollTop = 0;
+            window.addEventListener("scroll", () => {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                if (scrollTop > lastScrollTop) {
+                    document.querySelector('.menu-bar').style.transform = "translateY(-100%)";
+                } else {
+                    document.querySelector('.menu-bar').style.transform = "translateY(0)";
+                }
+                lastScrollTop = scrollTop;
+            });
+        });
+    </script>
+</body>
+</html>
