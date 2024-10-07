@@ -563,6 +563,71 @@
                 transform: translateY(0);
             }
         }
+        
+        /* Mobile-friendly adjustments */
+        @media (max-width: 768px) {
+            h1 { 
+                font-size: 2.5rem; 
+            }
+            .title { 
+                font-size: 1rem; 
+            }
+            .container {
+                padding: 1rem;
+            }
+            .connect-grid {
+                grid-template-columns: 1fr;
+            }
+            .expertise-container {
+                grid-template-columns: 1fr;
+            }
+            .about-content {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            .about-video {
+                order: -1;
+            }
+            .about-tagline {
+                font-size: 1.25rem;
+            }
+            .menu-bar {
+                padding: 0.5rem 0;
+            }
+            .menu-bar ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.5rem;
+            }
+            .menu-bar li a {
+                font-size: 0.9rem;
+                padding: 0.5rem;
+            }
+        }
+        
+        /* Adjust header for smaller screens */
+        @media (max-width: 480px) {
+            header {
+                height: auto;
+                min-height: 100vh;
+                padding-top: 80px;
+            }
+            .header-content {
+                padding: 2rem 1rem;
+            }
+            .scroll-indicator {
+                bottom: 1rem;
+            }
+        }
+        
+        /* Ensure video doesn't overflow on small screens */
+        .video-container {
+            max-width: 100%;
+        }
+        .video-container video {
+            width: 100%;
+            height: auto;
+        }
     </style>
 </head>
 <body>
@@ -782,6 +847,32 @@
                 }
                 lastScrollTop = scrollTop;
             });
+
+            // Add touch support for expertise items
+            expertiseItems.forEach(item => {
+                item.addEventListener('touchstart', function(e) {
+                    e.preventDefault();
+                    this.classList.toggle('active');
+                }, {passive: false});
+            });
+
+            // Adjust menu bar behavior for mobile
+            const menuBar = document.querySelector('.menu-bar');
+            let touchStartY = 0;
+            let touchEndY = 0;
+
+            document.addEventListener('touchstart', e => {
+                touchStartY = e.changedTouches[0].screenY;
+            }, {passive: true});
+
+            document.addEventListener('touchend', e => {
+                touchEndY = e.changedTouches[0].screenY;
+                if (touchStartY > touchEndY + 5) {
+                    menuBar.style.transform = "translateY(-100%)";
+                } else if (touchStartY < touchEndY - 5) {
+                    menuBar.style.transform = "translateY(0)";
+                }
+            }, {passive: true});
         });
     </script>
 </body>
