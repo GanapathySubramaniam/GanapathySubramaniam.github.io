@@ -1,0 +1,53 @@
+@media (max-width: 768px) {
+    h1 { 
+        font-size: 2.5rem; 
+    }
+    .title { 
+        font-size: 1rem; 
+    }
+    .container {
+        padding: 1rem;
+    }
+    .connect-grid {
+        grid-template-columns: 1fr;
+    }
+    .expertise-container {
+        grid-template-columns: 1fr;
+    }
+    .about-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .about-video {
+        order: -1;
+    }
+    .about-tagline {
+        font-size: 1.25rem;
+    }
+    .menu-bar {
+        padding: 0.5rem 0;
+    }
+    .menu-bar ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+    .menu-bar li a {
+        font-size: 0.9rem;
+        padding: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        height: auto;
+        min-height: 100vh;
+        padding-top: 80px;
+    }
+    .header-content {
+        padding: 2rem 1rem;
+    }
+    .scroll-indicator {
+        bottom: 1rem;
+    }
+}
