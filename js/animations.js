@@ -2,9 +2,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Glitch typewriter effect
     const phrases = [
         "Generative AI Specialist",
-        "AI Innovator",
-        "Generative AI Specialist",
-        "Cloud AI Architect",
+        //"AI Innovator",
+        //"Generative AI Specialist",
+       // "Cloud AI Architect",
     ];
     const el = document.querySelector('.title');
     const fx = new TextScramble(el);
